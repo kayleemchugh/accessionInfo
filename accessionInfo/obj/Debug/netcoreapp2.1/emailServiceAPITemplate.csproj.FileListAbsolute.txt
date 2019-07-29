@@ -1,0 +1,14 @@
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/bin/Debug/netcoreapp2.1/emailServiceAPITemplate.deps.json
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/bin/Debug/netcoreapp2.1/emailServiceAPITemplate.runtimeconfig.json
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/bin/Debug/netcoreapp2.1/emailServiceAPITemplate.runtimeconfig.dev.json
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/bin/Debug/netcoreapp2.1/emailServiceAPITemplate.dll
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/bin/Debug/netcoreapp2.1/emailServiceAPITemplate.pdb
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/obj/Debug/netcoreapp2.1/emailServiceAPITemplate.csprojAssemblyReference.cache
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/obj/Debug/netcoreapp2.1/emailServiceAPITemplate.csproj.CoreCompileInputs.cache
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/obj/Debug/netcoreapp2.1/emailServiceAPITemplate.RazorAssemblyInfo.cache
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/obj/Debug/netcoreapp2.1/emailServiceAPITemplate.RazorAssemblyInfo.cs
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/obj/Debug/netcoreapp2.1/emailServiceAPITemplate.AssemblyInfoInputs.cache
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/obj/Debug/netcoreapp2.1/emailServiceAPITemplate.AssemblyInfo.cs
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/obj/Debug/netcoreapp2.1/emailServiceAPITemplate.RazorTargetAssemblyInfo.cache
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/obj/Debug/netcoreapp2.1/emailServiceAPITemplate.dll
+/Users/kaylee.mchugh/Projects/emailServiceAPITemplate/emailServiceAPITemplate/obj/Debug/netcoreapp2.1/emailServiceAPITemplate.pdb

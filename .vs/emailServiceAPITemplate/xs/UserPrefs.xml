@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{5FD3F941-CA9A-4008-B966-C36695003B10}|Default">
+  <MonoDevelop.Ide.ItemProperties.emailServiceAPITemplate PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="emailServiceAPITemplate/Models/AccessionBasicInfo.cs">
+    <Files>
+      <File FileName="emailServiceAPITemplate/Controllers/ValuesController.cs" Line="24" Column="10" />
+      <File FileName="emailServiceAPITemplate/Models/EmptyClass.cs" Line="13" Column="10" />
+      <File FileName="emailServiceAPITemplate/Controllers/EmptyClass.cs" Line="29" Column="1" />
+      <File FileName="emailServiceAPITemplate/Models/EmptyClass.cs" Line="24" Column="34" />
+      <File FileName="emailServiceAPITemplate/Services/EmptyClass.cs" Line="20" Column="15" />
+      <File FileName="emailServiceAPITemplate/Messaging/SignalR.cs" Line="18" Column="1" />
+      <File FileName="emailServiceAPITemplate/Messaging/Startup.cs" Line="44" Column="51" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="emailServiceAPITemplate" expanded="True">
+            <Node name="emailServiceAPITemplate" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Messaging" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="AccessionBasicInfo.cs" selected="True" />
+              </Node>
+              <Node name="Services" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

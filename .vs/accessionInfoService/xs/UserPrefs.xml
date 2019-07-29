@@ -1,0 +1,25 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Projects/emailServiceAPITemplate/emailServiceAPITemplate/Messaging/Startup.cs">
+    <Files>
+      <File FileName="accessionInfoService/MyClass.cs" Line="1" Column="1" />
+      <File FileName="../../../Projects/emailServiceAPITemplate/emailServiceAPITemplate/Messaging/SignalR.cs" Line="1" Column="1" />
+      <File FileName="../../../Projects/emailServiceAPITemplate/emailServiceAPITemplate/Messaging/Startup.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="accessionInfoService" expanded="True">
+            <Node name="accessionInfoService" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.accessionInfoService FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

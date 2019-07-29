@@ -11805,11 +11805,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kaylee.mchugh/Desktop/armyCapabilitiesPOC/accessionInfoService/emailServiceAPITemplate/accessionInfo.csproj",
+      "projectUniqueName": "/Users/kaylee.mchugh/Desktop/armyCapabilitiesPOC/accessionInfoService/accessionInfo/accessionInfo.csproj",
       "projectName": "accessionInfo",
-      "projectPath": "/Users/kaylee.mchugh/Desktop/armyCapabilitiesPOC/accessionInfoService/emailServiceAPITemplate/accessionInfo.csproj",
+      "projectPath": "/Users/kaylee.mchugh/Desktop/armyCapabilitiesPOC/accessionInfoService/accessionInfo/accessionInfo.csproj",
       "packagesPath": "/Users/kaylee.mchugh/.nuget/packages/",
-      "outputPath": "/Users/kaylee.mchugh/Desktop/armyCapabilitiesPOC/accessionInfoService/emailServiceAPITemplate/obj/",
+      "outputPath": "/Users/kaylee.mchugh/Desktop/armyCapabilitiesPOC/accessionInfoService/accessionInfo/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

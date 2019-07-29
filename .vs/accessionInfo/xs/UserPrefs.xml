@@ -1,16 +1,10 @@
-﻿<Properties StartupConfiguration="{A44DF15C-60EF-4FA0-BD34-05F121DB9D26}|Default">
-  <MonoDevelop.Ide.ItemProperties.accessionInfo PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
-    <Files>
-      <File FileName="Program.cs" Line="13" Column="25" />
-    </Files>
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="accessionInfo" expanded="True">
-            <Node name="accessionInfo" expanded="True">
-              <Node name="Program.cs" selected="True" />
-            </Node>
+            <Node name="emailServiceAPITemplate" selected="True" />
           </Node>
         </State>
       </Pad>

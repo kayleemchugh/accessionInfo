@@ -1,59 +1,41 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace emailServiceAPITemplate.Messaging
 {
-    public class Startup
+
+    namespace emailServiceAPITemplate.Messaging
     {
-        public Startup(IConfiguration configuration)
+        public class Startup
         {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.Configure<CookiePolicyOptions>(options =>
+            public Startup(IConfiguration configuration)
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            services.AddSignalR();
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
+                Configuration = configuration;
             }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseCookiePolicy();
-            app.UseSignalR(routes =>
+            public IConfiguration Configuration { get; }
+
+            public void ConfigureServices(IServiceCollection services)
             {
-                routes.MapHub<SignalR>("/getAccessionInfo");
-            });
-            app.UseMvc();
+                services.AddMvc();
+                services.AddSignalR()
+                        .AddAzureSignalR();
+            }
+
+            public void Configure(IApplicationBuilder app)
+            {
+                app.UseMvc();
+                app.UseFileServer();
+                app.UseAzureSignalR(routes =>
+                {
+                    routes.MapHub<SignalR>("/accessionBasicInfo");
+                });
+            }
         }
+
+
     }
+
 
 }

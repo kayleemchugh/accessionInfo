@@ -22,7 +22,11 @@ namespace emailServiceAPITemplate.Services
             return accessionBasicInfo;
 
         }
-      
+
+        internal static void extractCareerCodeFromBRCFormInfo()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IBrcFormService

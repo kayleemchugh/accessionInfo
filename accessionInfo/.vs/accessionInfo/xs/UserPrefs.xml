@@ -1,15 +1,21 @@
 ﻿<Properties StartupConfiguration="{A44DF15C-60EF-4FA0-BD34-05F121DB9D26}|Default">
   <MonoDevelop.Ide.ItemProperties.accessionInfo PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
     <Files>
-      <File FileName="Program.cs" Line="13" Column="25" />
+      <File FileName="Services/BRCFormService.cs" Line="19" Column="31" />
+      <File FileName="Startup.cs" Line="80" Column="46" NotebookId="1" />
+      <File FileName="Messaging/Startup.cs" Line="11" Column="6" NotebookId="1" />
+      <File FileName="Messaging/AccessionInfoHub.cs" Line="30" Column="2" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="accessionInfo" expanded="True">
             <Node name="accessionInfo" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="Messaging" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

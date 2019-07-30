@@ -7,7 +7,7 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/kaylee.mchugh/.nuget/packages/</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/kaylee.mchugh/.nuget/packages/;/usr/local/share/dotnet/sdk/NuGetFallbackFolder</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.2.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.1.0</NuGetToolVersion>
   </PropertyGroup>
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -25,5 +25,6 @@
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.entityframeworkcore.tools/2.1.1</PkgMicrosoft_EntityFrameworkCore_Tools>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.codeanalysis.analyzers/1.1.0</PkgMicrosoft_CodeAnalysis_Analyzers>
     <PkgMicrosoft_AspNetCore_Razor_Design Condition=" '$(PkgMicrosoft_AspNetCore_Razor_Design)' == '' ">/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.razor.design/2.1.2</PkgMicrosoft_AspNetCore_Razor_Design>
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">/Users/kaylee.mchugh/.nuget/packages/jquery/1.6.4</PkgjQuery>
   </PropertyGroup>
 </Project>

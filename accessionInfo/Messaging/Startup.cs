@@ -1,41 +1,38 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Owin;
 
-namespace emailServiceAPITemplate.Messaging
+//[assembly: OwinStartup(typeof(accessionInfo.Messaging.Startup))]
+namespace accessionInfo.Messaging
 {
-
-    namespace emailServiceAPITemplate.Messaging
+    public class Startup
     {
-        public class Startup
-        {
-            public Startup(IConfiguration configuration)
-            {
-                Configuration = configuration;
-            }
+        HubConnection connection;
 
-            public IConfiguration Configuration { get; }
+        //public void Configure(IApplicationBuilder app)
+        //{
 
-            public void ConfigureServices(IServiceCollection services)
-            {
-                services.AddMvc();
-                services.AddSignalR()
-                        .AddAzureSignalR();
-            }
+        //    Console.WriteLine("setting up hub connection");
 
-            public void Configure(IApplicationBuilder app)
-            {
-                app.UseMvc();
-                app.UseFileServer();
-                app.UseAzureSignalR(routes =>
-                {
-                    routes.MapHub<SignalR>("/accessionBasicInfo");
-                });
-            }
-        }
+        //    connection = new HubConnectionBuilder()
+        //        .WithUrl("https://armypoc.service.signalr.net:5002/api/v1-preview/hub/accessionInfoHub")
+        //        .Build();
 
+        //    connection.Closed += async (error) =>
+        //    {
+        //        await Task.Delay(new Random().Next(0, 5) * 1000);
+        //        await connection.StartAsync();
+        //    };
 
+        //    connection.On<string, string>("ReceiveMessage", (user, message) =>
+        //    {
+        //        // do something in other class 
+               
+        //    });
+
+        //    // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        //}
     }
-
-
 }

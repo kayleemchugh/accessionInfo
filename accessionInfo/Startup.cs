@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Net;
 using Newtonsoft.Json;
 
 namespace emailServiceAPITemplate
@@ -15,7 +16,7 @@ namespace emailServiceAPITemplate
     public class Startup
     {
         HubConnection connection;
-        Services.BRCFormService formService;
+        Services.BRCFormService formService = new Services.BRCFormService();
 
         public Startup(IConfiguration configuration)
         {
@@ -23,9 +24,14 @@ namespace emailServiceAPITemplate
 
             Console.WriteLine("setting up hub connection");
 
-            connection = new HubConnectionBuilder()
-                .WithUrl("https://armypoc.service.signalr.net/client/?hub=AccessionInfoHub")
-                .Build();
+
+             connection = new HubConnectionBuilder().WithUrl("https://armypoc.service.signalr.net/client/?hub=AccessionInfoHub", option =>
+                {
+                    option.AccessTokenProvider = () =>
+                    {
+                        return Task.FromResult("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJLYXlsZWUiLCJuYmYiOjE1NjQ2MTE3NjUsImV4cCI6MTU2NDYxNTM2NSwiaWF0IjoxNTY0NjExNzY1LCJhdWQiOiJodHRwczovL2FybXlwb2Muc2VydmljZS5zaWduYWxyLm5ldC9jbGllbnQvP2h1Yj1BY2Nlc3Npb25JbmZvSHViIn0.I6X4LAwYRsjbtLFiawz3nrxKC8FsDABkyL5JdlrTPyg");
+                    };
+                }).Build();
 
             connection.Closed += async (error) =>
             {
@@ -33,12 +39,20 @@ namespace emailServiceAPITemplate
                 await connection.StartAsync();
             };
 
-            connection.On<string, Models.BRCInfo>("ReceiveBRCInfo", (user, message) =>
+            connection.On<Models.BRCInfo>("BrcFormSubmit", (message) =>
             {
                 // do something in other class 
                 Models.AccessionBasicInfo basicInfo = formService.extractCareerCodeFromBRCFormInfo(message);
-                sendBasicAccesssionInfoToAzure("POST", "URL", basicInfo);
+                string code = basicInfo.careerCode;
+                sendBasicAccesssionInfoToAzure("POST", "https://prod-60.westus.logic.azure.com:443/workflows/c6e52a389b7d4205a0f44026e37a57de/triggers/manual/paths/invoke?code=" + code + "&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SoQUsoUr7qk_OGcIvbinPKpzaVEMdb83wCGsrpIuouQ", basicInfo);
             });
+
+             StartAsync();
+        }
+
+        public async Task StartAsync()
+        {
+            await connection.StartAsync();
         }
 
         public IConfiguration Configuration { get; }
@@ -72,7 +86,7 @@ namespace emailServiceAPITemplate
             {
                 HttpRequestMessage requestMessage = new HttpRequestMessage(new HttpMethod(httpMethod), URL);
 
-                var httpContent = new StringContent(JsonConvert.SerializeObject(accessionBasicInfo));
+                var httpContent = new StringContent(JsonConvert.SerializeObject(accessionBasicInfo), System.Text.Encoding.UTF8, "application/json");
 
 
                 if (accessionBasicInfo != null)
@@ -82,14 +96,12 @@ namespace emailServiceAPITemplate
 
 
                 HttpResponseMessage response = client.SendAsync(requestMessage).Result;
-
-                string apiResponse = response.Content.ReadAsStringAsync().Result;
+                HttpStatusCode apiResponse = response.StatusCode;
+                
                 try
                 {
                     // Attempt to deserialise the reponse to the desired type, otherwise throw an expetion with the response from the api.
-                    if (apiResponse != "")
-                        Console.WriteLine(JsonConvert.DeserializeObject<Object>(apiResponse));
-                    else
+                    if (apiResponse != HttpStatusCode.Accepted )
                         throw new Exception();
                 }
                 catch (Exception ex)

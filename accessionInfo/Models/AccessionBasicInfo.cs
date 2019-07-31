@@ -7,7 +7,7 @@ namespace emailServiceAPITemplate.Models
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }
-        public int careerCode { get; set; }
+        public string careerCode { get; set; }
 
         public AccessionBasicInfo()
         {

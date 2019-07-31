@@ -24,7 +24,7 @@ namespace emailServiceAPITemplate
             Console.WriteLine("setting up hub connection");
 
             connection = new HubConnectionBuilder()
-                .WithUrl("https://armypoc.service.signalr.net:5002/api/v1-preview/hub/accessionInfoHub")
+                .WithUrl("https://armypoc.service.signalr.net/client/?hub=AccessionInfoHub")
                 .Build();
 
             connection.Closed += async (error) =>

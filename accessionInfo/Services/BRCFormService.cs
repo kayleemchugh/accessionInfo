@@ -16,7 +16,7 @@ namespace emailServiceAPITemplate.Services
                 email = bRCInfo.emailAddress,
                 firstName = bRCInfo.firstName,
                 lastName = bRCInfo.lastName,
-                careerCode = 1
+                careerCode = "AA"
             };
 
             return accessionBasicInfo;

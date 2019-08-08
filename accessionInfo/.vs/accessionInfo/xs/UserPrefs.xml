@@ -3,7 +3,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
     <Files>
       <File FileName="Services/BRCFormService.cs" Line="19" Column="31" />
-      <File FileName="Startup.cs" Line="80" Column="46" NotebookId="1" />
+      <File FileName="Startup.cs" Line="59" Column="17" NotebookId="1" />
       <File FileName="Messaging/Startup.cs" Line="11" Column="6" NotebookId="1" />
       <File FileName="Messaging/AccessionInfoHub.cs" Line="30" Column="2" NotebookId="1" />
     </Files>

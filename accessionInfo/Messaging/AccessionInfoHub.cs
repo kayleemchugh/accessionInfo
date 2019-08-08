@@ -20,11 +20,5 @@ namespace emailServiceAPITemplate.Messaging
             await Clients.All.SendAsync("ReceiveMessage", user, message);
         }
 
-        //private async Task get_BRC_info(string user, string message)
-        //{
-
- 
-
-        //}
     }
 }

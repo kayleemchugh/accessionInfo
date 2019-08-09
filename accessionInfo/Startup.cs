@@ -29,7 +29,7 @@ namespace emailServiceAPITemplate
                 {
                     option.AccessTokenProvider = () =>
                     {
-                        return Task.FromResult("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJLYXlsZWUiLCJuYmYiOjE1NjQ2MTE3NjUsImV4cCI6MTU2NDYxNTM2NSwiaWF0IjoxNTY0NjExNzY1LCJhdWQiOiJodHRwczovL2FybXlwb2Muc2VydmljZS5zaWduYWxyLm5ldC9jbGllbnQvP2h1Yj1BY2Nlc3Npb25JbmZvSHViIn0.I6X4LAwYRsjbtLFiawz3nrxKC8FsDABkyL5JdlrTPyg");
+                        return Task.FromResult("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNQWRraW5zLU1CUF9mOWI4MDE0ZTRlZjU0NmNmYWNjYjVmM2E2MGQyNGMyZiIsIm5iZiI6MTU2NDY4MDQ4NywiZXhwIjoxNTgxOTYwNDg3LCJpYXQiOjE1NjQ2ODA0ODcsImF1ZCI6Imh0dHBzOi8vYXJteXBvYy5zZXJ2aWNlLnNpZ25hbHIubmV0L2NsaWVudC8_aHViPUFjY2Vzc2lvbkluZm9IdWIifQ.cDbzpy8kIOt1jRTRzo8l0ZsytV-LYUZ3kJ0zcnHI7fU");
                     };
                 }).Build();
 
@@ -44,7 +44,8 @@ namespace emailServiceAPITemplate
                 // do something in other class 
                 Models.AccessionBasicInfo basicInfo = formService.extractCareerCodeFromBRCFormInfo(message);
                 string code = basicInfo.careerCode;
-                sendBasicAccesssionInfoToAzure("POST", "https://prod-60.westus.logic.azure.com:443/workflows/c6e52a389b7d4205a0f44026e37a57de/triggers/manual/paths/invoke?code=" + code + "&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SoQUsoUr7qk_OGcIvbinPKpzaVEMdb83wCGsrpIuouQ", basicInfo);
+                
+                sendBasicAccesssionInfoToAzure("POST", "https://brc-form-to-email-orch.azurewebsites.net/api/BRC_form_to_email_orch", basicInfo);
             });
 
              StartAsync();

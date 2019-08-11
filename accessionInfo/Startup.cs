@@ -13,23 +13,37 @@ using Newtonsoft.Json;
 
 namespace emailServiceAPITemplate
 {
+    enum Connection
+    {
+        server,
+        client
+    }
+
     public class Startup
     {
         HubConnection connection;
         Services.BRCFormService formService = new Services.BRCFormService();
 
+        public static readonly string signalRConnectionString = "Endpoint=https://armypoc.service.signalr.net;AccessKey=ewyrRfLNd7Rd5aEdEHm6Xx2dmFcg08SrKJ52J2nEAoQ=;Version=1.0;";
+        public static readonly string accessionInfoHub = "AccessionInfoHub";
+        public static readonly string accessionInfoHubConnectionUrl = "https://armypoc.service.signalr.net/client/?hub=AccessionInfoHub";
+        public static readonly string orchestrationAzureFunction = "https://brc-form-to-email-orch.azurewebsites.net/api/BRC_form_to_email_orch";
+        public static readonly string targetMessage = "BrcFormSubmit";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
 
-            Console.WriteLine("setting up hub connection");
+            Console.WriteLine("Setting up hub connection");
 
+             ServiceUtils serviceUtils = new ServiceUtils(nameof(Connection.client), signalRConnectionString, accessionInfoHub);
+             string token = serviceUtils.GenerateAccessToken();
 
-             connection = new HubConnectionBuilder().WithUrl("https://armypoc.service.signalr.net/client/?hub=AccessionInfoHub", option =>
+             connection = new HubConnectionBuilder().WithUrl(accessionInfoHubConnectionUrl, option =>
                 {
                     option.AccessTokenProvider = () =>
                     {
-                        return Task.FromResult("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJNQWRraW5zLU1CUF9mOWI4MDE0ZTRlZjU0NmNmYWNjYjVmM2E2MGQyNGMyZiIsIm5iZiI6MTU2NDY4MDQ4NywiZXhwIjoxNTgxOTYwNDg3LCJpYXQiOjE1NjQ2ODA0ODcsImF1ZCI6Imh0dHBzOi8vYXJteXBvYy5zZXJ2aWNlLnNpZ25hbHIubmV0L2NsaWVudC8_aHViPUFjY2Vzc2lvbkluZm9IdWIifQ.cDbzpy8kIOt1jRTRzo8l0ZsytV-LYUZ3kJ0zcnHI7fU");
+                        return Task.FromResult(token);
                     };
                 }).Build();
 
@@ -39,13 +53,13 @@ namespace emailServiceAPITemplate
                 await connection.StartAsync();
             };
 
-            connection.On<Models.BRCInfo>("BrcFormSubmit", (message) =>
+            connection.On<Models.BRCInfo>(targetMessage, (message) =>
             {
                 // do something in other class 
                 Models.AccessionBasicInfo basicInfo = formService.extractCareerCodeFromBRCFormInfo(message);
                 string code = basicInfo.careerCode;
                 
-                sendBasicAccesssionInfoToAzure("POST", "https://brc-form-to-email-orch.azurewebsites.net/api/BRC_form_to_email_orch", basicInfo);
+                sendBasicAccesssionInfoToAzure("POST", orchestrationAzureFunction, basicInfo);
             });
 
              StartAsync();
